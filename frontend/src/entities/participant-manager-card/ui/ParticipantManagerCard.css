@@ -1,0 +1,109 @@
+.participant-manager-employee {
+    display: flex;
+    padding: 11px;
+    background-color: var(--white);
+    gap: 18px;
+    min-height: 180px;
+    height: 100%;
+    width: 100%;
+}
+
+.participant-manager-photo-wrapper {
+    position: relative;
+    aspect-ratio: 222 / 255;
+
+}
+
+.participant-manager-name {
+    position: absolute;
+    background-color: var(--red);
+    padding: 2px;
+    max-width: max-content;
+    bottom: 11px;
+    left: 11px
+}
+
+.participant-manager-name-text, .participant-manager-contacts {
+    font-weight: 400;
+    font-size: 20px;
+    font-stretch: semi-condensed;
+    line-height: 130%;
+
+}
+
+.participant-manager-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.participant-manager-role {
+    color: var(--red);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 130%;
+    font-stretch: semi-condensed;
+}
+.participant-manager-contacts {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+}
+
+.participant-manager-label {
+    color: var(--red);
+}
+
+.participant-manager-value {
+    color: var(--dark-grey);
+}
+
+.participant-manager-social-links {
+    color: var(--dark-grey);
+    gap: 10px;
+    display: flex;
+}
+
+@media (max-width: 950px) {
+    .participant-manager-photo-wrapper {
+        aspect-ratio: 2 / 3;
+
+    }
+}
+
+@media (max-width: 768px) {
+    .participant-manager-employee {
+        padding: 8px;
+        gap: 12px;
+    }
+
+    .participant-manager-photo-wrapper {
+        width: 100%;
+        aspect-ratio: 143 / 165;
+        max-height: 180px;
+        max-width: 143px;
+    }
+
+    .participant-manager-name {
+        bottom: 5px;
+        left: 5px
+    }
+
+    .participant-manager-name-text, .participant-manager-contacts {
+        font-size: 15px;
+    }
+
+    .participant-manager-role {
+        font-size: 15px;
+    }
+
+    .participant-manager-contacts {
+        gap: 5px;
+    }
+
+    .participant-manager-social-links .icon {
+        width: 27px;
+        height: 27px;
+
+    }
+}

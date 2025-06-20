@@ -1,0 +1,156 @@
+.header {
+    background-color: var(--dark-grey);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 100;
+    min-height: 136px;
+}
+
+.header__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.header__top {
+    display: flex;
+    justify-content: space-between;
+    height: 48px;
+    border-bottom: 1px solid var(--white);
+}
+
+.header__logo {
+    position: relative;
+    height: 28px;
+    aspect-ratio: 320 / 28;
+}
+
+.header__title {
+    font-size: 15px;
+    line-height: 130%;
+    font-stretch: semi-condensed;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.header__bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.header__nav {
+    display: flex;
+    align-items: center;
+    gap: 10px 20px;
+    flex-wrap: wrap;
+}
+
+.header__link {
+    font-size: 15px;
+    line-height: 130%;
+    font-stretch: semi-condensed;
+    font-weight: 400;
+    position: relative;
+}
+
+.header__link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--red);
+    transition: width 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .header__link:hover {
+        color: var(--white);
+    }
+
+    .header__link:hover::after {
+        width: 100%;
+    }
+}
+
+
+.header__burger {
+    display: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.header__title.hidden__desktop {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .header {
+        min-height: 48px;
+    }
+
+    .header__inner {
+        gap: 32px;
+    }
+
+    .header__top {
+        align-items: center;
+        border-bottom: none;
+    }
+
+    .header__logo {
+        height: 12px;
+        aspect-ratio: 141 / 12;
+
+    }
+
+    .header__burger {
+        display: block;
+    }
+
+    .header.active .header__burger .icon {
+        width: 20px;
+        height: 20px;
+        color: var(--divider-white);
+    }
+
+    .header__bottom, .header__title.hidden__mobile {
+        display: none;
+    }
+
+    .header__title.hidden__desktop {
+        display: block;
+        text-align: center;
+    }
+
+    .header.active {
+        height: 100vh;
+        flex-direction: column;
+    }
+
+    .header.active .header__bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+        align-items: center;
+    }
+
+    .header__nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .header__link {
+        font-size: 20px;
+    }
+}
+

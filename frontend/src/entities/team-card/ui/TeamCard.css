@@ -1,0 +1,95 @@
+.team-card {
+   max-width: 544px;
+}
+
+
+.team-card__preview {
+    display: flex;
+    gap: 13px;
+    flex-direction: column;
+    width: 286px;
+    cursor: pointer;
+}
+
+.team-card__image-wrapper {
+    position: relative;
+    aspect-ratio: 286 / 415;
+}
+
+.team-card__name {
+    height: 40px;
+    background-color: var(--red);
+    max-width: max-content;
+    font-family: var(--font-Benzin), sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 130%;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    padding: 0 7px;
+}
+
+.team-card__position {
+    font-size: 20px;
+    font-weight: 400;
+    font-stretch: semi-condensed;
+    line-height: 130%;
+}
+
+
+
+/* активная карточка*/
+
+.team-card__popup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    background-color: var(--dark-grey);
+}
+
+.team-card__popup-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.team-card__popup .team-card__name {
+    max-width: none;
+    width: 100%;
+    justify-content: center;
+}
+
+.team-card__close-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--white);
+    width: 27px;
+}
+
+.team-card__contact-label {
+    color: var(--red);
+}
+
+.team-card__socials {
+    display: flex;
+    gap: 15px;
+}
+
+@media (max-width: 768px) {
+    .team-card {
+        max-width: 320px;
+    }
+
+    .team-card__popup .team-card__name {
+        font-size: 15px;
+    }
+
+
+    .team-card__popup .team-card__position {
+        font-size: 15px;
+    }
+
+}

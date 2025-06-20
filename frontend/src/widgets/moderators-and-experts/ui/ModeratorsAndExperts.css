@@ -1,0 +1,64 @@
+.moderators-experts {
+    padding: 60px 0;
+    background-image: url('/png/background-team.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--dark-grey);
+}
+
+.moderators-experts__container {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+
+.moderators-experts__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.moderators-experts__controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.moderators-experts-prev, .moderators-experts-next {
+    width: 96px;
+    height: 64px;
+    border: 1px solid var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.moderators-experts-prev.swiper-button-disabled, .moderators-experts-next.swiper-button-disabled {
+   cursor: default;
+}
+
+@media (max-width: 768px) {
+    .moderators-experts {
+        padding: 45px 0;
+    }
+
+    .moderators-experts__container {
+        gap: 45px;
+    }
+
+    .moderators-experts__controls {
+        gap: 6px;
+    }
+
+    .moderators-experts-prev, .moderators-experts-next {
+        width: 52px;
+        height: 36px;
+    }
+    .moderators-experts__controls .icon{
+        width: 40px;
+        height: 8px;
+    }
+}
+
