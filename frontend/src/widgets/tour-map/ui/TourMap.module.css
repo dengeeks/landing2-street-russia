@@ -1,0 +1,93 @@
+.tourMapSection {
+    position: relative;
+    --x: 0;
+    --y: 0;
+}
+
+.relativeWrapper {
+    position: relative;
+}
+
+.mapWrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.mapWrapper svg {
+    max-width: 1369px;
+}
+
+.mapRegionPath  {
+    fill: #6E231F;
+    stroke: var(--dark-grey);
+    stroke-width: 0.5;
+}
+
+.mapRegionPath:hover  {
+    fill: var(--grey);
+}
+
+.leftContent {
+    position: absolute;
+    top: 63px;
+    left: 0;
+    z-index: 2;
+    max-width: 771px;
+}
+
+
+/*маркер*/
+
+.mapWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.mapMarker {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 9px;
+    pointer-events: none;
+}
+
+
+
+
+.label {
+    color: var(--white);
+    font-size: 20px;
+    white-space: nowrap;
+    font-weight: 400;
+    font-stretch: semi-condensed;
+    line-height: 130%;
+}
+
+.city {
+    background-color: var(--blue);
+}
+
+
+@media (max-width: 768px ) {
+    .leftContent {
+        top: 0;
+    }
+
+
+    .mapMarker {
+        gap: 2px;
+    }
+
+    .mapMarker svg {
+        width: 10px;
+        height: 15px;
+    }
+
+    .label {
+        font-size: 8px;
+    }
+
+}

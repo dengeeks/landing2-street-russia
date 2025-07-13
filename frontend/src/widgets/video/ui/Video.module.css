@@ -1,0 +1,43 @@
+.videoContainer {
+    position: relative;
+    height: 632px;
+    overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+    .videoContainer {
+        height: 500px;
+    }
+
+    .videoSection :global(.video) {
+        width: 90vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .videoContainer {
+        height: 320px;
+    }
+
+    .videoSection :global(.video) {
+        aspect-ratio: 320 / 170;
+    }
+
+
+}
+
+@media (max-width: 600px) {
+    .videoContainer {
+        height: 260px;
+    }
+    .videoSection :global(.video) {
+        width: 70vh;
+    }
+}
+
+@media (max-width: 500px) {
+    .videoSection :global(.video) {
+        width: 50vh;
+    }
+}
+

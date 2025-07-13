@@ -1,0 +1,23 @@
+.partners-mobile {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+/*пагинация галереи*/
+.SwiperPagination .swiper-pagination {
+    position: static;
+    margin-top: 8px;
+}
+
+.SwiperPagination.swiper-initialized.swiper-horizontal .swiper-pagination .swiper-pagination-bullet {
+    margin: 0 2px;
+    height: 4px;
+    width: 4px;
+    background: var(--white);
+    opacity: 1;
+}
+
+.SwiperPagination.swiper-initialized.swiper-horizontal .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: var(--blue);
+}

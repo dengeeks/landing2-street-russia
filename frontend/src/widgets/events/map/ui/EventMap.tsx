@@ -1,13 +1,21 @@
+'use client'
+
+import Loader from '@/shared/ui/Loader'
+import dynamic from 'next/dynamic'
 import styles from "./EventMap.module.css"
 
-const EventMap = () => {
+const MapIframe = dynamic(() => import('@/shared/ui/MapIframe'), { ssr: false, loading: () => <Loader/>, });
+
+interface EventMapProps {
+  title: string;
+  yandex_address: string;
+}
+
+
+const EventMap = ({title, yandex_address}:EventMapProps) => {
   return (
-    <section className={`container section-spacing-top ${styles.eventMapSection}`}>
-      <iframe
-        className={styles.eventMapIframe}
-        src="https://yandex.ru/map-widget/v1/?um=constructor%3A90c9c41c27645e685c0fcb9a931ca7c31f870f5ea1a75d4b7071608018a6c43c&amp;source=constructor"
-        allowFullScreen
-      ></iframe>
+    <section className={`container section-spacing-top section-spacing-bottom ${styles.eventMapSection}`}>
+      <MapIframe className={styles.eventMapIframe} src={yandex_address} title={title}/>
     </section>
   )
 }

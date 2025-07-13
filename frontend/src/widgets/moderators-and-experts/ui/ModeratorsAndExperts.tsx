@@ -9,9 +9,11 @@ import 'swiper/css/free-mode'
 import {FreeMode, Navigation} from "swiper/modules";
 import Icon from "@/shared/icon";
 import {useState} from "react";
+import { useHomeData } from '@/shared/context/home-data/useHomeDataContext'
 
 const ModeratorsAndExperts = () => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
+    const {moderator} = useHomeData()
 
     const handleCardClick = (index: number) => {
         setActiveIndex(prev => prev === index ? null : index);
@@ -44,11 +46,12 @@ const ModeratorsAndExperts = () => {
                         }}
                         modules={[FreeMode, Navigation]}
                     >
-                        {[...Array(6)].map((_, index) => (
+                        {moderator.map((moder, index) => (
                             <SwiperSlide style={{ width: "auto" }} key={index}>
                                 <TeamCard
                                     isActive={activeIndex === index}
                                     onClick={() => handleCardClick(index)}
+                                    {...moder}
                                 />
                             </SwiperSlide>
                         ))}

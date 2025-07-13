@@ -19,7 +19,7 @@ const Header = () => {
             <div className="header__inner container">
                 <div className="header__top">
                     <Link href="/" className="header__logo">
-                        <Image src="/logo.png" alt="Улицы России" fill />
+                        <Image src="/logo.webp" alt="Улицы России" width={321} height={28} priority unoptimized/>
                     </Link>
                     <button type="button" onClick={toggleMenu} className="header__burger" aria-label="Меню">
                         <Icon icon={isMenuOpen ? 'close' : 'burger'} width={39} height={12}/>
@@ -38,7 +38,7 @@ const Header = () => {
                         <Link href="/#program" className="header__link" onClick={() => setIsMenuOpen(false)}>Программа</Link>
                         <Link href="/#participants" className="header__link" onClick={() => setIsMenuOpen(false)}>Участники</Link>
                         <Link href="/#experts" className="header__link" onClick={() => setIsMenuOpen(false)}>Диджеи и гости</Link>
-                        <Link href="/#location" className="header__link" onClick={() => setIsMenuOpen(false)}>Партнеры и организаторы</Link>
+                        <Link href="/#partners" className="header__link" onClick={() => setIsMenuOpen(false)}>Партнеры и организаторы</Link>
                         <Link href="/#media" className="header__link" onClick={() => setIsMenuOpen(false)}>Для СМИ</Link>
                     </nav>
                     <Button className="red compact">Купить билет</Button>

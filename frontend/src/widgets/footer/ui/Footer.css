@@ -16,11 +16,6 @@
     gap: 25px;
 }
 
-.footer__logo-image {
-    position: relative;
-    height: 97px;
-    aspect-ratio: 364 / 97;
-}
 
 .footer__logo-text, .footer__legal, .footer__contacts {
     font-size: 20px;
@@ -61,10 +56,9 @@
         gap: 20px;
     }
 
-    .footer__logo-image {
-        position: relative;
+    .footer__logo-image img{
         height: 79px;
-        aspect-ratio: 297 / 79;
+        width: 297px;
     }
 
     .footer__logo-text {

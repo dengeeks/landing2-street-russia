@@ -1,29 +1,19 @@
-'use client'
 import './Partners.css'
 import SectionTitle from '@/shared/ui/SectionTitle'
-import { useMobileDetection } from '@/shared/hooks/useIsMobile'
-import dynamic from 'next/dynamic'
-import Loader from "@/shared/ui/Loader";
+import PartnersResponsive from './internal'
+import { getPartners } from '../api/getPartners'
 
-const PartnersDesktop = dynamic(() => import('./desktop/PartnersDesktop'), {
-  loading: () => (<Loader/>),
-});
+const Partners = async () => {
+  const partnersData = await getPartners()
 
-const PartnersMobile = dynamic(() => import('./mobile/PartnersMobile'), {
-  loading: () => (<Loader/>),
-});
+  if (partnersData.length === 0) {
+    return null
+  }
 
-
-const Partners = () => {
-  const isMobile = useMobileDetection()
   return (
     <section className="container partners-section section-spacing-top" id="partners">
-      <SectionTitle>ПАРТНЁРЫ и организаторы</SectionTitle>
-      {isMobile ? (
-        <PartnersMobile />
-      ) : (
-        <PartnersDesktop />
-      )}
+      <SectionTitle>ПАРТНЁРЫ</SectionTitle>
+      <PartnersResponsive data={partnersData} />
     </section>
   )
 }

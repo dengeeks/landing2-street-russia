@@ -9,6 +9,7 @@
     font-stretch: semi-condensed;
     line-height: 130%;
     font-weight: 400;
+    word-break: break-word;
 }
 
 .participants-info__gallery {

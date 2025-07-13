@@ -1,9 +1,9 @@
 import { PUBLIC_API_BASE_URL } from '@/shared/settings'
 
 export const getImageUrl = (url?: string) => {
-  if (!url) return '/png/mock/mock-admin.png';
+  if (!url) return '/webp/mock/mock-admin.webp';
 
-  return url.startsWith('/back_media1')
+  return url.startsWith('/back_media')
     ? `${PUBLIC_API_BASE_URL}${url}`
     : url;
 };

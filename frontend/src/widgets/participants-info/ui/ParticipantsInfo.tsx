@@ -1,40 +1,36 @@
-import "./ParticipantsInfo.css";
-import SectionTitle from "@/shared/ui/SectionTitle";
-import Image from "next/image";
-import ParticipantManagerCard from "@/entities/participant-manager-card/ui/ParticipantManagerCard";
+'use client'
+import './ParticipantsInfo.css'
+import SectionTitle from '@/shared/ui/SectionTitle'
+import Image from 'next/image'
+import ParticipantManagerCard from '@/entities/participant-manager-card'
+import { getImageUrl } from '@/shared/utils/getImageUrl'
+import { useHomeData } from '@/shared/context/home-data/useHomeDataContext'
 
 const ParticipantsInfo = () => {
-    return (
-        <section className="participants-info container section-spacing-top" id="participants">
-            <SectionTitle>участники</SectionTitle>
+  const { participant, info_participant, gallery } = useHomeData()
+  return (
+    <section className="participants-info container section-spacing-top" id="participants">
+      <SectionTitle>участники</SectionTitle>
 
-            <p className="participants-info__text">
-                Всероссийский образовательный форум уличной культуры и спорта «Улицы России» — это проект про улицы, творчество, спорт, молодёжь, про открытость и стремление к самосовершенствованию.
-                <br />
-                <br />
-                Участники форума «Улицы России» в Барнауле — это молодые специалисты в сфере молодежной политики и представители уличной индустрии, объединенные желанием развивать себя и общество, создавать проекты для людей улиц и свободно говорить о своем творчестве с обществом.
-                <br />
-                <br />
-                Форум уличной культуры и спорта — уникальный проект, направленный на повышение интеллектуального капитала представителей уличной культуры в Российской Федерации.
-            </p>
+      <p className="participants-info__text">{info_participant}</p>
 
-            <div className="participants-info__gallery">
-                <ParticipantManagerCard/>
-                <div className="participants-info__image-wrapper">
-                    <Image src="/test/part.png" alt="" fill />
-                </div>
-                <div className="participants-info__image-wrapper">
-                    <Image src="/test/part.png" alt="" fill />
-                </div>
-                <div className="participants-info__image-wrapper">
-                    <Image src="/test/part.png" alt="" fill />
-                </div>
-                <div className="participants-info__image-wrapper">
-                    <Image src="/test/part.png" alt="" fill />
-                </div>
+      <div className="participants-info__gallery">
+        <ParticipantManagerCard {...participant}/>
+        {(gallery.length > 0 ? gallery : new Array(4).fill(null)).map((image, index) => {
+          const sizes =
+            index === 0
+              ? '(min-width: 1240px) 634px, (min-width: 768px) calc(50vw - 32px), calc(100vw - 32px)'
+              : '(min-width: 1240px) 388px, (min-width: 768px) calc(33vw - 20px), calc(100vw - 32px)'
+
+          return (
+            <div key={index} className="participants-info__image-wrapper">
+              <Image src={getImageUrl(image?.image)} alt={`Изображение участника ${index + 1}`} fill sizes={sizes} />
             </div>
-        </section>
-    );
-};
+          )
+        })}
+      </div>
+    </section>
+  )
+}
 
-export default ParticipantsInfo;
+export default ParticipantsInfo

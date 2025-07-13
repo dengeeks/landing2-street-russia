@@ -1,5 +1,5 @@
 .program-info {
-    background: url('/png/background-program.png') no-repeat right bottom / contain;
+    background: url('/webp/background-program.webp') no-repeat right bottom / contain;
 }
 
 
@@ -50,6 +50,8 @@
     font-size: 60.62px;
     line-height: 130%;
     text-transform: uppercase;
+    display: inline-block;
+    white-space: pre-line;
 }
 
 .program-info__dates {
@@ -110,7 +112,7 @@
     }
 
     .program-info__button {
-        display: block;
+        display: flex;
         max-width: 100%;
     }
 
