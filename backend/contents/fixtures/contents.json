@@ -1,0 +1,97 @@
+[
+  {
+    "model": "contents.media",
+    "pk": 1,
+    "fields": {
+      "created_at": "2025-07-13T12:52:00.307Z",
+      "updated_at": "2025-07-13T12:52:00.309Z",
+      "title": "Аккредитация для СМИ",
+      "date": "до 22 октября 18:00",
+      "email": "info@streetrussia.ru",
+      "fio": "Елизавета Сырыгина"
+    }
+  },
+  {
+    "model": "contents.discipline",
+    "pk": 1,
+    "fields": {
+      "created_at": "2025-07-13T12:52:47.516Z",
+      "updated_at": "2025-07-13T12:52:47.517Z",
+      "title": "info@streetrussia.ru"
+    }
+  },
+  {
+    "model": "contents.discipline",
+    "pk": 2,
+    "fields": {
+      "created_at": "2025-07-13T12:52:50.144Z",
+      "updated_at": "2025-07-13T12:52:50.145Z",
+      "title": "info@streetrussia.ru"
+    }
+  },
+  {
+    "model": "contents.discipline",
+    "pk": 3,
+    "fields": {
+      "created_at": "2025-07-13T12:52:52.776Z",
+      "updated_at": "2025-07-13T12:52:52.777Z",
+      "title": "info@streetrussia.ru"
+    }
+  },
+  {
+    "model": "contents.discipline",
+    "pk": 4,
+    "fields": {
+      "created_at": "2025-07-13T12:52:54.980Z",
+      "updated_at": "2025-07-13T12:52:54.980Z",
+      "title": "info@streetrussia.ru"
+    }
+  },
+  {
+    "model": "contents.discipline",
+    "pk": 5,
+    "fields": {
+      "created_at": "2025-07-13T12:52:57.261Z",
+      "updated_at": "2025-07-13T12:52:57.261Z",
+      "title": "info@streetrussia.ru"
+    }
+  },
+  {
+    "model": "contents.discipline",
+    "pk": 6,
+    "fields": {
+      "created_at": "2025-07-13T12:56:21.073Z",
+      "updated_at": "2025-07-13T12:56:21.073Z",
+      "title": "CACHE_DISCIPLINE_KEY"
+    }
+  },
+  {
+    "model": "contents.street",
+    "pk": 1,
+    "fields": {
+      "created_at": "2025-07-13T13:12:46.588Z",
+      "updated_at": "2025-07-13T13:12:46.588Z",
+      "text": "Это не только дороги и дома, в которых мы живем, это все то,  что окружает нас каждый день, это огромная часть нашей жизни,  это образы, которые вдохновляют нас, раскрывают личности,  а мы их объединяем\r\n\r\nВ рамках трехнедельного тура лучшие диджеи, хип-хоп артисты, представители электронной музыки, танцоры и самые яркие локальные исполнители будут ежедневно, с субботы по субботу, прокачивать один из городов России."
+    }
+  },
+  {
+    "model": "contents.contactfooter",
+    "pk": "e595c7a7-cfff-42a0-9539-319167585160",
+    "fields": {
+      "created_at": "2025-07-13T13:21:11.604Z",
+      "updated_at": "2025-07-13T13:21:18.697Z",
+      "url": "https://google.com",
+      "image": "uploads/contactfooter/e595c7a7-cfff-42a0-9539-319167585160/1.png"
+    }
+  },
+  {
+    "model": "contents.emailphonefooter",
+    "pk": 1,
+    "fields": {
+      "created_at": "2025-07-13T12:52:36.590Z",
+      "updated_at": "2025-07-13T12:52:36.590Z",
+      "email": "info@streetrussia.ru",
+      "phone": "+7 (918) 752-55-17"
+    }
+  }
+]
