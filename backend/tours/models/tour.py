@@ -151,8 +151,8 @@ class Tour(UUIDMixin, DateTimeMixin):
         return self.title
 
     class Meta:
-        verbose_name = 'форум'
-        verbose_name_plural = 'форум'
+        verbose_name = 'тур'
+        verbose_name_plural = 'тур'
 
 
 class TourCityActivity(DateTimeMixin):
@@ -190,3 +190,7 @@ class TourCityActivity(DateTimeMixin):
     date = models.DateTimeField(
         verbose_name = 'Дата'
     )
+
+    class Meta:
+        verbose_name = 'активность'
+        verbose_name_plural = 'активность'
