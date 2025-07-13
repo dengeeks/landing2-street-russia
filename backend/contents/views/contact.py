@@ -27,5 +27,5 @@ class EmailPhoneFooterAPI(APIView):
     serializer_class = EmailPhoneFooterFooterSerializer
 
     def get(self, request):
-        data = EmailPhoneFooterService.get_content_data(serializer_class = self.serializer_class)
+        data = self.service_class.get_content_data(serializer_class = self.serializer_class)
         return Response(data)

@@ -1,6 +1,7 @@
 from django.contrib import admin
 from unfold.admin import ModelAdmin, TabularInline
 
+from common.admin import LinkToDetailMixin
 from tours.admin.social import SocialLinkManagerInline
 from tours.models.participant import Participant, BlockParticipantGallery
 
@@ -14,11 +15,11 @@ class BlockParticipantGalleryInline(TabularInline):
 
 
 @admin.register(Participant)
-class ParticipantAdmin(ModelAdmin):
-    list_display = ['fio', 'title', 'email', 'address', 'created_at']
+class ParticipantAdmin(LinkToDetailMixin,ModelAdmin):
+    list_display = ['link_to_detail','fio', 'title', 'email', 'address', 'created_at']
     search_fields = ['fio', 'email', 'address']
 
-    readonly_fields = ['created_at', 'updated_at']
+    readonly_fields = ['link_to_detail','created_at', 'updated_at']
 
     fieldsets = [
         ['Основная информация', {

@@ -21,9 +21,28 @@ DOMAIN = config('DOMAIN', cast = str, default = 'street-russia')
 CACHE_TOUR_KEY = config('CACHE_TOUR_KEY', cast = str, default = 'CACHE_TOUR_KEY')
 CACHE_TOUR_TIMEOUT = config('CACHE_TOUR_TIMEOUT', cast = int, default = 60 * 60 * 24)
 
-# Кеширование
 CACHE_TOUR_DETAIL_KEY = config('CACHE_TOUR_DETAIL_KEY', cast = str, default = 'CACHE_TOUR_DETAIL_KEY')
 CACHE_TOUR_DETAIL_TIMEOUT = config('CACHE_TOUR_DETAIL_TIMEOUT', cast = int, default = 60 * 60 * 24)
+
+CACHE_DISCIPLINE_KEY = config('CACHE_DISCIPLINE_KEY', cast = str, default = 'CACHE_DISCIPLINE_KEY')
+CACHE_DISCIPLINE_TIMEOUT = config('CACHE_DISCIPLINE_TIMEOUT', cast = int, default = 60 * 60 * 24)
+
+CACHE_MEDIA_KEY = config('CACHE_MEDIA_KEY', cast = str, default = 'CACHE_MEDIA_KEY')
+CACHE_MEDIA_TIMEOUT = config('CACHE_MEDIA_TIMEOUT', cast = int, default = 60 * 60 * 24)
+
+CACHE_PARTNERS_KEY = config('CACHE_PARTNERS_KEY', cast = str, default = 'CACHE_PARTNERS_KEY')
+CACHE_PARTNERS_TIMEOUT = config('CACHE_PARTNERS_TIMEOUT', cast = int, default = 60 * 60 * 24)
+
+CACHE_CONTACT_FOOTER_KEY = config('CACHE_CONTACT_FOOTER_KEY', cast = str, default = 'CACHE_CONTACT_FOOTER_KEY')
+CACHE_CONTACT_FOOTER_TIMEOUT = config('CACHE_CONTACT_FOOTER_TIMEOUT', cast = int, default = 60 * 60 * 24)
+
+CACHE_EMAIL_PHONE_FOOTER_KEY = config(
+    'CACHE_EMAIL_PHONE_FOOTER_KEY', cast = str, default = 'CACHE_EMAIL_PHONE_FOOTER_KEY'
+)
+CACHE_EMAIL_PHONE_FOOTER_TIMEOUT = config('CACHE_EMAIL_PHONE_FOOTER_TIMEOUT', cast = int, default = 60 * 60 * 24)
+
+CACHE_STREET_KEY = config('CACHE_STREET_KEY', cast = str, default = 'CACHE_STREET_KEY')
+CACHE_STREET_TIMEOUT = config('CACHE_STREET_TIMEOUT', cast = int, default = 60 * 60 * 24)
 
 INSTALLED_APPS = [
     'unfold',
@@ -82,14 +101,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -106,7 +123,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'Europe/Moscow'
@@ -114,7 +130,6 @@ TIME_ZONE = 'Europe/Moscow'
 USE_I18N = True
 
 USE_TZ = True
-
 
 STATIC_URL = 'back_static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'back_static')
@@ -306,34 +321,33 @@ UNFOLD = {
                     }
                 ]
             },
-
-            # {
-            #     "title": "Статика",
-            #     "collapsible": True,
-            #     "separator": True,
-            #     "items": [
-            #         {
-            #             "title": "Блок цели",
-            #             "link": reverse_lazy("admin:contents_goal_changelist"),
-            #         },
-            #         {
-            #             "title": "Блок аккредитация для СМИ",
-            #             "link": reverse_lazy("admin:contents_media_changelist"),
-            #         },
-            #         {
-            #             "title": "Блок регистрации",
-            #             "link": reverse_lazy("admin:contents_registration_changelist"),
-            #         },
-            #         {
-            #             "title": "Контакты (соцсети)",
-            #             "link": reverse_lazy("admin:contents_contactfooter_changelist"),
-            #         },
-            #         {
-            #             "title": "Почта, Номер",
-            #             "link": reverse_lazy("admin:contents_emailphonefooter_changelist"),
-            #         }
-            #     ]
-            # },
+            {
+                "title": "Статика",
+                "collapsible": True,
+                "separator": True,
+                "items": [
+                    {
+                        "title": "Дисциплина",
+                        "link": reverse_lazy("admin:contents_discipline_changelist"),
+                    },
+                    {
+                        "title": "Блок аккредитация для СМИ",
+                        "link": reverse_lazy("admin:contents_media_changelist"),
+                    },
+                    {
+                        "title": "Почта, Номер",
+                        "link": reverse_lazy("admin:contents_emailphonefooter_changelist"),
+                    },
+                    {
+                        "title": "Соцсети",
+                        "link": reverse_lazy("admin:contents_contactfooter_changelist"),
+                    },
+                    {
+                        "title": "Блок УЛИЦЫ",
+                        "link": reverse_lazy("admin:contents_street_changelist"),
+                    }
+                ]
+            },
 
         ],
     },

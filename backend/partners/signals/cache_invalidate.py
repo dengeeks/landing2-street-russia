@@ -12,5 +12,4 @@ from partners.models.partner import Partner, PartnerType
 @receiver(post_delete, sender = PartnerType)
 def invalidate_partners_cache(sender, instance, **kwargs):
     """Инвалидирует кеш партнеров при любых изменениях"""
-    print('laal')
     cache.delete(settings.CACHE_PARTNERS_KEY)

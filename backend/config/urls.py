@@ -8,10 +8,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # API
-    # path('api/v1/', include('contents.urls')),
-    # path('api/v1/', include('partners.urls')),
+    path('api/v1/', include('contents.urls')),
+    path('api/v1/', include('partners.urls')),
     path('api/v1/', include('tours.urls')),
-    # path('api/v1/', include('feedbacks.urls')),
 
     # DRF SPECTACULAR
     path('api/v1/schema/', SpectacularAPIView.as_view(), name = 'schema'),
