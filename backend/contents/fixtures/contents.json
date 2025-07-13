@@ -1,0 +1,97 @@
+[
+  {
+    "model": "contents.goal",
+    "pk": "0132985c-5780-46ba-b166-ffcacf6d2def",
+    "fields": {
+      "created_at": "2025-07-11T10:12:50.949Z",
+      "updated_at": "2025-07-11T10:12:50.978Z",
+      "desc": "Развитие молодых специалистов по работе с молодежью",
+      "image": "uploads/goal/0132985c-5780-46ba-b166-ffcacf6d2def/33adab1573c2fae02a2b1145e3a7fa1d31b3b06b1.jpg",
+      "order": 1
+    }
+  },
+  {
+    "model": "contents.goal",
+    "pk": "6933f5e0-2cb1-453a-bd4a-772b7e6b5ff5",
+    "fields": {
+      "created_at": "2025-07-11T10:13:04.751Z",
+      "updated_at": "2025-07-11T10:13:04.753Z",
+      "desc": "Выявление компетенций и амбиций",
+      "image": "uploads/goal/6933f5e0-2cb1-453a-bd4a-772b7e6b5ff5/8eb16708cbf60052ea307601897c525cf7db39731.jpg",
+      "order": 2
+    }
+  },
+  {
+    "model": "contents.goal",
+    "pk": "7c793109-7b27-47ff-8248-7573be9f47d9",
+    "fields": {
+      "created_at": "2025-07-11T10:13:18.117Z",
+      "updated_at": "2025-07-11T10:13:18.121Z",
+      "desc": "Поддержка инициатив и талантов",
+      "image": "uploads/goal/7c793109-7b27-47ff-8248-7573be9f47d9/cae0ce41c3c2c7663a9cb0dee469629f0a144e541.jpg",
+      "order": 3
+    }
+  },
+  {
+    "model": "contents.goal",
+    "pk": "ce024437-a9be-4d47-8059-7c575f6f3c79",
+    "fields": {
+      "created_at": "2025-07-11T10:13:33.170Z",
+      "updated_at": "2025-07-11T10:13:33.174Z",
+      "desc": "Создание условий для взаимодействия государства, \r\nВузов и представителей уличных культур",
+      "image": "uploads/goal/ce024437-a9be-4d47-8059-7c575f6f3c79/aca7a2cbb32aacdfdcf9f0ca8a4a8236d18d5fbf1.jpg",
+      "order": 4
+    }
+  },
+  {
+    "model": "contents.media",
+    "pk": 1,
+    "fields": {
+      "created_at": "2025-07-11T10:12:20.462Z",
+      "updated_at": "2025-07-11T10:12:20.471Z",
+      "title": "Аккредитация для СМИ",
+      "date": "до 22 октября 18:00",
+      "email": "info@streetrussia.ru",
+      "fio": "Елизавета Сырыгина"
+    }
+  },
+  {
+    "model": "contents.registration",
+    "pk": "808a24e0-7ce8-4456-923e-3cc0cdc6abac",
+    "fields": {
+      "created_at": "2025-07-11T10:11:50.011Z",
+      "updated_at": "2025-07-11T10:11:50.035Z",
+      "image": "uploads/registration/808a24e0-7ce8-4456-923e-3cc0cdc6abac/d4e7527845df438bcd7eed778fcc6ec782a71baf1.png"
+    }
+  },
+  {
+    "model": "contents.contactfooter",
+    "pk": "1f19e1e4-5824-445e-8820-f0bb25c20b25",
+    "fields": {
+      "created_at": "2025-07-11T10:10:40.973Z",
+      "updated_at": "2025-07-11T10:10:40.974Z",
+      "url": "https://google.com",
+      "image": "uploads/contactfooter/1f19e1e4-5824-445e-8820-f0bb25c20b25/VKontakte.png"
+    }
+  },
+  {
+    "model": "contents.contactfooter",
+    "pk": "bb5b218a-5517-4ed7-920c-cd3b0e78aa8d",
+    "fields": {
+      "created_at": "2025-07-11T10:10:21.028Z",
+      "updated_at": "2025-07-11T10:11:04.316Z",
+      "url": "https://google.com",
+      "image": "uploads/contactfooter/bb5b218a-5517-4ed7-920c-cd3b0e78aa8d/telegram1.png"
+    }
+  },
+  {
+    "model": "contents.emailphonefooter",
+    "pk": 1,
+    "fields": {
+      "created_at": "2025-07-11T10:07:16.527Z",
+      "updated_at": "2025-07-11T10:09:31.296Z",
+      "email": "info@streetrussia.ru",
+      "phone": "+7 (918) 752-55-17"
+    }
+  }
+]
