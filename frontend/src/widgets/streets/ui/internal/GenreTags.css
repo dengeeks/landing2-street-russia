@@ -1,9 +1,14 @@
-.genre-tags {
+.genre-tags-swiper {
     max-width: 575px;
     margin-top: 40px;
-    position: relative;
     width: 100%;
+}
+
+.genre-tags {
+    max-width: 575px;
     min-height: 374px;
+    position: relative;
+    cursor: grab;
 }
 
 .genre-tags__item {
@@ -22,6 +27,19 @@
     height: 76px;
 
     position: absolute;
+
+}
+
+.genre-tags-help {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 400;
+    font-stretch: semi-condensed;
+    line-height: 130%;
+    color: var(--red);
+    margin-bottom: 10px;
 }
 
 .genre-tags__item--0 {

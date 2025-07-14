@@ -1,8 +1,7 @@
 .notFoundContainer {
-    background-image: url('/png/background-404.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-image: url('/webp/background-404.webp');
+    background-repeat: repeat;
+    background-size: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,6 +30,35 @@
     font-stretch: semi-condensed;
 }
 
+
+.notFoundContainer .button {
+    height: 60px;
+    display: flex;
+    padding: 0 32px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    color: var(--white);
+    font-family: var(--font-Bahnschrift), sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+    max-width: max-content;
+}
+
+.button.red {
+    background-color: var(--red);
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+    .notFoundContainer a:hover {
+        color: var(--white);
+    }
+}
+
 @media (max-width: 768px) {
 
     .notFoundContainer {
@@ -49,4 +77,11 @@
         padding: 0 20px;
     }
 
+    .notFoundContainer .button {
+        height: 44px;
+        font-size: 15px;
+    }
+
 }
+
+

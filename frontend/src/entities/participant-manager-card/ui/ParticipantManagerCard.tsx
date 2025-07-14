@@ -1,38 +1,37 @@
 import "./ParticipantManagerCard.css";
 import Image from "next/image";
-import Link from "next/link";
-import Icon from "@/shared/icon";
+import type { ParticipantType } from '@/shared/api/home-tour/type'
+import { getImageUrl } from '@/shared/utils/getImageUrl'
 
-const ParticipantManagerCard = () => {
+const ParticipantManagerCard = ({image, fio, email, phone, title, address, social_links}: ParticipantType) => {
     return (
         <article className="participant-manager-employee">
             <div className="participant-manager-photo-wrapper">
-                <Image src="/test/empoyee.png" alt="" fill/>
+                <Image src={getImageUrl(image || undefined)} alt={fio} width={222} height={255} sizes="(min-width: 950px) 222px, (min-width: 768px) 180px, 143px"/>
                 <div className="participant-manager-name">
-                    <div className="participant-manager-name-text">Анна Васильевна</div>
+                    <div className="participant-manager-name-text">{fio}</div>
                 </div>
             </div>
             <div className="participant-manager-info">
-                <div className="participant-manager-role">Работа с участниками</div>
+                <div className="participant-manager-role">{title}</div>
                 <div className="participant-manager-contacts">
                     <div className="participant-manager-info-row">
                         <span className="participant-manager-label">mail:</span>
-                        <span className="participant-manager-value">alyona@mail.ru</span>
+                        <span className="participant-manager-value">{email}</span>
                     </div>
-                    <div className="participant-manager-value">+7 923 567-78-90</div>
+                    <div className="participant-manager-value">{phone}</div>
                     <div className="participant-manager-info-row">
                         <span className="participant-manager-label">Офис:</span>
-                        <span className="participant-manager-value">16мкр, д. 50, оф 216 пн-пт с 09.00–18.00</span>
+                        <span className="participant-manager-value">{address}</span>
                     </div>
 
                 </div>
                 <div className="participant-manager-social-links">
-                    <Link href="/">
-                        <Icon icon="telegram" width={42} height={42}/>
-                    </Link>
-                    <Link href="/">
-                        <Icon icon="vk" width={42} height={42}/>
-                    </Link>
+                    {social_links.map((social, index) => (
+                      <a key={index} href={social.url} target="_blank" rel="noopener noreferrer">
+                        <Image src={getImageUrl(social.social_media.image)} alt={`${social.social_media.name} участника ${fio}`} width={42} height={42}/>
+                    </a>
+                    ))}
                 </div>
             </div>
         </article>

@@ -10,9 +10,13 @@
 
 .participant-manager-photo-wrapper {
     position: relative;
-    aspect-ratio: 222 / 255;
 
 }
+.participant-manager-photo-wrapper img{
+    object-fit: cover;
+
+}
+
 
 .participant-manager-name {
     position: absolute;
@@ -65,8 +69,9 @@
 }
 
 @media (max-width: 950px) {
-    .participant-manager-photo-wrapper {
-        aspect-ratio: 2 / 3;
+    .participant-manager-photo-wrapper img{
+        width: 180px;
+        height: 210px;
 
     }
 }
@@ -77,11 +82,9 @@
         gap: 12px;
     }
 
-    .participant-manager-photo-wrapper {
-        width: 100%;
-        aspect-ratio: 143 / 165;
-        max-height: 180px;
-        max-width: 143px;
+    .participant-manager-photo-wrapper img {
+        height: 180px;
+        width: 143px;
     }
 
     .participant-manager-name {

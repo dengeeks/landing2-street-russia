@@ -1,4 +1,3 @@
-@import "normalize.css";
 @import "decor.css";
 
 :root {
@@ -20,7 +19,6 @@
   --agreement: #787878;
   --glass: rgba(255, 255, 255, 0.27);
   --font-Bahnschrift: "Bahnschrift", "Bahnschrift Fallback";
-  --font-Inter: "Inter", "Inter Fallback";
   --font-Benzin: "Benzin", "Benzin Fallback";
   --dashed-color: var(--white)
 }
@@ -39,7 +37,9 @@ body {
   font-family: var(--font-Bahnschrift), sans-serif;
   padding-top: 136px;
   caret-color: transparent;
-  background-image: url(/background.png);
+  background-image: url(/background.webp);
+  background-repeat: repeat;
+  background-size: auto;
 }
 
 input,
@@ -85,50 +85,6 @@ a {
   width: 100%;
 }
 
-/*пагинация галереи*/
-.SwiperPagination .swiper-pagination {
-  position: static;
-  margin-top: 8px;
-}
-
-.SwiperPagination.swiper-initialized.swiper-horizontal .swiper-pagination .swiper-pagination-bullet {
-  margin: 0 2px;
-  height: 4px;
-  width: 4px;
-  background: var(--white);
-  opacity: 1;
-}
-
-.SwiperPagination.swiper-initialized.swiper-horizontal .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
-  background: var(--blue);
-}
-
-
-/* Ссылка подробнее */
-.more-link {
-  height: 60px;
-  display: flex;
-  padding: 0 32px;
-  justify-content: center;
-  align-items: center;
-  border: 3px solid var(--red);
-  color: var(--white);
-  font-family: var(--font-Bahnschrift), sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  text-transform: uppercase;
-  cursor: pointer;
-  text-align: center;
-  max-width: max-content;
-}
-
-/*страница мероприятий*/
-
-.event-list-page {
-  margin-top: 60px;
-  display: flex;
-  gap: 20px;
-}
 
 
 @media (max-width: 768px) {
@@ -143,12 +99,6 @@ a {
   body .section-spacing-bottom {
     margin-bottom: 80px;
   }
-
-  .more-link {
-    height: 44px;
-    font-size: 15px;
-  }
-
 }
 
 
