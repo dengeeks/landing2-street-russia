@@ -4,7 +4,7 @@ WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-EXPOSE 8000
+EXPOSE 8002
 
 # Обновление pip
 RUN pip install --upgrade pip

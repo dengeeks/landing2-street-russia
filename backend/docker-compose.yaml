@@ -1,67 +1,78 @@
 version: '3.8'
 
 services:
-
-  db:
-    container_name: db
+  landing2_db:
+    container_name: landing2_db
     image: postgres
     restart: always
     env_file:
       - ./.env
     ports:
-      - "5432:5432"
+      - "5434:5432"
     volumes:
-      - db_data:/var/lib/postgresql/data/
+      - landing2_db_data:/var/lib/postgresql/data/
+    networks:
+      - landing2_network
 
-  backend:
+  landing2-backend:
     build:
-      context: .
+      context: ./backend
     env_file:
       - ./.env
-    container_name: backend
-    command: gunicorn config.wsgi:application --workers 2 --threads 1 --timeout 60 --preload --bind 0.0.0.0:8000
+    container_name: landing2-backend
+    command: gunicorn config.wsgi:application --workers 2 --threads 1 --timeout 60 --preload --bind 0.0.0.0:8002
     ports:
-      - '8000:8000'
-    restart: always
+      - '8002:8002'
+    restart: unless-stopped
     depends_on:
-      - db
-      - redis
+      - landing2_db
+      - landing2_redis
     volumes:
-      - static:/app/back_static
-      - media:/app/back_media
+      - landing2_static_volume:/app/back_static
+      - landing2_media_volume:/app/back_media
+    networks:
+      - landing2_network
 
-
-  celery:
+  landing2_celery:
     build:
-      context: .
+      context: ./backend
     env_file:
       - ./.env
     command: celery -A config worker --loglevel=info
     depends_on:
-      - backend
-      - redis
+      - landing2-backend
+      - landing2_redis
+    networks:
+      - landing2_network
 
-  redis:
+  landing2_redis:
     image: redis:latest
     env_file:
       - ./.env
     ports:
-      - "6379:6379"
-    command: redis-server --requirepass redis_password
+      - "6381:6379"
+    command: redis-server --requirepass redis_landing2_password
+    networks:
+      - landing2_network
 
-  nginx:
-    container_name: nginx
-    image: nginx:latest
+  landing2_nextjs:
+    build:
+      context: ./frontend
+    container_name: landing2_nextjs
+    restart: unless-stopped
     ports:
-      - "80:80"
-    restart: always
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      - static:/app/back_static
-      - media:/app/back_media
+      - 3002:3000
+    depends_on:
+      - landing2-backend
+    networks:
+      - landing2_network
 
 
 volumes:
-  static:
-  media:
-  db_data:
+  landing2_static_volume:
+  landing2_media_volume:
+  landing2_db_data:
+
+networks:
+  landing2_network:
+    external: true
