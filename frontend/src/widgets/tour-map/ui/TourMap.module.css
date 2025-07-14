@@ -46,15 +46,14 @@
 
 .mapMarker {
     position: absolute;
-    left: var(--x);
+    left: calc(var(--x) - 16px);
     top: var(--y);
-    transform: translate(-50%, -50%);
     display: flex;
     gap: 9px;
     pointer-events: none;
+    transform: translate(0%, -100%);
+    align-items: flex-end;
 }
-
-
 
 
 .label {
@@ -79,6 +78,7 @@
 
     .mapMarker {
         gap: 2px;
+        left: calc(var(--x) - 5px);
     }
 
     .mapMarker svg {

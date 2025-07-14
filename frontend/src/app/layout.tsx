@@ -7,7 +7,7 @@ import ModalManager from "@/widgets/modal-manager";
 
 export default async function RootLayout({children}: Readonly<{ children: ReactNode; }>) {
   return (
-    <html lang="en">
+    <html lang="ru">
     <body className={`${Bahnschrift.variable} ${Benzin.variable}`}>
       <Header/>
       <ModalManager />

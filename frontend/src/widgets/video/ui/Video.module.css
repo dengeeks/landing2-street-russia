@@ -4,14 +4,15 @@
     overflow: hidden;
 }
 
+
 @media (max-width: 1024px) {
     .videoContainer {
         height: 500px;
     }
-
-    .videoSection :global(.video) {
-        width: 90vh;
+    .videoContainer :global(.video) {
+        width: 100vh;
     }
+
 }
 
 @media (max-width: 768px) {
@@ -19,25 +20,10 @@
         height: 320px;
     }
 
-    .videoSection :global(.video) {
-        aspect-ratio: 320 / 170;
+    .videoContainer :global(.video) {
+        width: 80vh;
     }
-
 
 }
 
-@media (max-width: 600px) {
-    .videoContainer {
-        height: 260px;
-    }
-    .videoSection :global(.video) {
-        width: 70vh;
-    }
-}
-
-@media (max-width: 500px) {
-    .videoSection :global(.video) {
-        width: 50vh;
-    }
-}
 
