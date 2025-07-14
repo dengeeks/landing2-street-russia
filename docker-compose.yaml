@@ -6,7 +6,7 @@ services:
     image: postgres
     restart: always
     env_file:
-      - ./.env
+      - ./backend/.env
     ports:
       - "5434:5432"
     volumes:
@@ -18,7 +18,7 @@ services:
     build:
       context: ./backend
     env_file:
-      - ./.env
+      - ./backend/.env
     container_name: landing2-backend
     command: gunicorn config.wsgi:application --workers 2 --threads 1 --timeout 60 --preload --bind 0.0.0.0:8002
     ports:
@@ -37,7 +37,7 @@ services:
     build:
       context: ./backend
     env_file:
-      - ./.env
+      - ./backend/.env
     command: celery -A config worker --loglevel=info
     depends_on:
       - landing2-backend
@@ -48,7 +48,7 @@ services:
   landing2_redis:
     image: redis:latest
     env_file:
-      - ./.env
+      - ./backend/.env
     ports:
       - "6381:6379"
     command: redis-server --requirepass redis_landing2_password
