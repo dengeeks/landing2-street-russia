@@ -1,0 +1,78 @@
+version: '3.8'
+
+services:
+  landing2_db:
+    container_name: landing2_db
+    image: postgres
+    restart: always
+    env_file:
+      - ./backend/.env
+    ports:
+      - "5434:5432"
+    volumes:
+      - landing2_db_data:/var/lib/postgresql/data/
+    networks:
+      - landing2_network
+
+  landing2-backend:
+    build:
+      context: ./backend
+    env_file:
+      - ./backend/.env
+    container_name: landing2-backend
+    command: gunicorn config.wsgi:application --workers 2 --threads 1 --timeout 60 --preload --bind 0.0.0.0:8002
+    ports:
+      - '8002:8002'
+    restart: unless-stopped
+    depends_on:
+      - landing2_db
+      - landing2_redis
+    volumes:
+      - landing2_static_volume:/app/back_static
+      - landing2_media_volume:/app/back_media
+    networks:
+      - landing2_network
+
+  landing2_celery:
+    build:
+      context: ./backend
+    env_file:
+      - ./backend/.env
+    command: celery -A config worker --loglevel=info
+    depends_on:
+      - landing2-backend
+      - landing2_redis
+    networks:
+      - landing2_network
+
+  landing2_redis:
+    image: redis:latest
+    env_file:
+      - ./backend/.env
+    ports:
+      - "6381:6379"
+    command: redis-server --requirepass redis_landing2_password
+    networks:
+      - landing2_network
+
+  landing2_nextjs:
+    build:
+      context: ./frontend
+    container_name: landing2_nextjs
+    restart: unless-stopped
+    ports:
+      - 3002:3000
+    depends_on:
+      - landing2-backend
+    networks:
+      - landing2_network
+
+
+volumes:
+  landing2_static_volume:
+  landing2_media_volume:
+  landing2_db_data:
+
+networks:
+  landing2_network:
+    external: true
