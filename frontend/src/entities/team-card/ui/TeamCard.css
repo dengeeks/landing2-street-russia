@@ -39,6 +39,7 @@
     font-stretch: semi-condensed;
     line-height: 130%;
     word-break: break-word;
+    white-space: pre-wrap;
 }
 
 

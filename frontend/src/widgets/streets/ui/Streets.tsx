@@ -16,13 +16,9 @@ const Streets = async () => {
                 <div className="streets__content">
                     <SectionTitle>улицы</SectionTitle>
                     <div className="streets__description">
-                        <p className="streets__paragraph"
-                          dangerouslySetInnerHTML={{
-                              __html: streetDes.text
-                                .replace(/\r\n\r\n/g, '<br /><br />')
-                                .replace(/[\r\n\u2028]/g, '<br />')
-                          }}
-                        />
+                        <p className="streets__paragraph">
+                          {streetDes.text}
+                        </p>
                     </div>
                 </div>
                 <GenreTags genres={disciplines}/>

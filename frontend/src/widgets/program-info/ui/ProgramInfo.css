@@ -41,6 +41,7 @@
     font-weight: 400;
     line-height: 130%;
     font-stretch: semi-condensed;
+    white-space: pre-wrap;
 }
 
 
