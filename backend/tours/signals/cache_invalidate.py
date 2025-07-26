@@ -4,7 +4,6 @@ from django.db.models.signals import post_save, post_delete, m2m_changed
 from django.dispatch import receiver
 
 from regions.models.region import Region, City
-from tours.models.leader import Leader
 from tours.models.moderator import Moderator
 from tours.models.participant import BlockParticipantGallery, Participant
 from tours.models.social import SocialLink, SocialMedia
@@ -13,7 +12,6 @@ from tours.models.tour import Tour, TourCityActivity
 
 @receiver([post_save, post_delete], sender = Tour)
 @receiver([post_save, post_delete], sender = TourCityActivity)
-@receiver([post_save, post_delete], sender = Leader)
 @receiver([post_save, post_delete], sender = Participant)
 @receiver([post_save, post_delete], sender = Moderator)
 @receiver([post_save, post_delete], sender = Region)

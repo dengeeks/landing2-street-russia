@@ -271,16 +271,16 @@ UNFOLD = {
                         "link": reverse_lazy("admin:tours_tour_changelist"),
                     },
                     {
+                        "title": "Программа",
+                        "link": reverse_lazy("admin:tours_programdate_changelist"),
+                    },
+                    {
                         "title": "Диджеи и гости",
                         "link": reverse_lazy("admin:tours_moderator_changelist"),
                     },
                     {
                         "title": "Участники",
                         "link": reverse_lazy("admin:tours_participant_changelist"),
-                    },
-                    {
-                        "title": "Лидеры",
-                        "link": reverse_lazy("admin:tours_leader_changelist"),
                     }
                 ]
             },

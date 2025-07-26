@@ -1,11 +1,31 @@
 from django import forms
 from django.contrib import admin
 from django.core.exceptions import ValidationError
-from unfold.admin import ModelAdmin, TabularInline
+from unfold.admin import ModelAdmin, TabularInline, StackedInline
 
 from common.admin import LinkToDetailMixin
 from tours.admin.participant import BlockParticipantGalleryInline
-from tours.models.tour import Tour, TourCityActivity
+from tours.models.tour import Tour, TourCityActivity, ProgramDate, Program
+
+
+class ProgramInline(StackedInline):
+    model = Program
+    extra = 0
+    min_num = 1
+    autocomplete_fields = ['moderator']
+    fields = ['start_time', 'description', 'moderator']
+    filter_horizontal = ['moderator']  # если много модераторов
+
+
+@admin.register(ProgramDate)
+class ProgramDateAdmin(LinkToDetailMixin, ModelAdmin):
+    list_display = ['link_to_detail', 'tour', 'date', 'created_at', 'updated_at']
+    fields = ['tour', 'date', 'created_at', 'updated_at']
+    list_filter = ['tour']
+    readonly_fields = ['link_to_detail', 'created_at', 'updated_at']
+    autocomplete_fields = ['tour']
+    compressed_fields = True
+    inlines = [ProgramInline]
 
 
 class TourCityActivityInline(TabularInline):
@@ -73,6 +93,7 @@ class TourAdmin(LinkToDetailMixin, ModelAdmin):
     form = TourForm
     list_display = ['link_to_detail', 'title', 'address', 'starting_date', 'ending_date']
     readonly_fields = ['created_at', 'updated_at']
+    search_fields = ['title']
     compressed_fields = True
     fieldsets = (
         (
@@ -81,7 +102,6 @@ class TourAdmin(LinkToDetailMixin, ModelAdmin):
                 "classes": ["tab"],
                 "fields": [
                     'title',
-                    'info',
                     'format_type',
                     'video_url',
                     'image',
@@ -122,7 +142,6 @@ class TourAdmin(LinkToDetailMixin, ModelAdmin):
                     'info_participant',
                     'participant',
                     'moderator',
-                    'leader',
                 ],
             },
         ),
@@ -138,7 +157,7 @@ class TourAdmin(LinkToDetailMixin, ModelAdmin):
         ),
     )
     inlines = [BlockParticipantGalleryInline, TourCityActivityInline]
-    autocomplete_fields = ['moderator', 'leader', 'participant']
+    autocomplete_fields = ['moderator', 'participant']
 
     def has_add_permission(self, request):
         return not Tour.objects.exists()
