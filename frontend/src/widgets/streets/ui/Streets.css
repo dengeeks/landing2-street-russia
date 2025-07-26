@@ -25,6 +25,7 @@
     font-size: 20px;
     line-height: 130%;
     font-stretch: semi-condensed;
+    white-space: pre-wrap;
 }
 
 @media (max-width: 890px) {

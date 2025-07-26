@@ -1,4 +1,4 @@
-import type { MediaFormatType, SocialLinkType, RegionType } from '@/shared/api/type'
+import type { MediaFormatType, SocialLinkType, RegionType, ModeratorType } from '@/shared/api/type'
 
 
 export type ParticipantType = {
@@ -9,24 +9,10 @@ export type ParticipantType = {
    fio: string;
    email: string;
    phone: string;
-   address: string;
    image: string | null;
    title: string;
 }
 
-export type ModeratorType = {
-   id: string;
-   social_links: SocialLinkType[];
-   created_at: string;
-   updated_at: string;
-   fio: string;
-   email: string;
-   phone: string;
-   address: string;
-   image: string;
-   type: string;
-   desc: string;
-}
 
 export type TourActivities = {
    city: {

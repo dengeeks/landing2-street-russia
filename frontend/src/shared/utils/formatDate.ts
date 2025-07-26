@@ -43,3 +43,29 @@ export function formatEventDayRange(start: string, end: string): string {
   }
 }
 
+export function formatEventDateRangeFull(startDateStr: string, endDateStr: string): string {
+  const start = new Date(startDateStr);
+  const end = new Date(endDateStr);
+
+  const startDay = start.getDate();
+  const endDay = end.getDate();
+
+  const startMonth = start.getMonth();
+  const endMonth = end.getMonth();
+
+  const startYear = start.getFullYear();
+  const endYear = end.getFullYear();
+
+  // Один месяц, один год
+  if (startMonth === endMonth && startYear === endYear) {
+    return `${startDay}–${endDay} ${MONTHS_RU[endMonth]} ${endYear} г.`;
+  }
+
+  // Разные месяцы, но один год
+  if (startYear === endYear) {
+    return `${startDay} ${MONTHS_RU[startMonth]} – ${endDay} ${MONTHS_RU[endMonth]} ${endYear} г.`;
+  }
+
+  // Разные года
+  return `${startDay} ${MONTHS_RU[startMonth]} ${startYear} – ${endDay} ${MONTHS_RU[endMonth]} ${endYear} г.`;
+}

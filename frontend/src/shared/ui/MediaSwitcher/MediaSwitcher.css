@@ -11,14 +11,15 @@
     transform: translate(-50%, -50%);
 }
 
-@media (max-width: 1000px) {
+
+@media (max-width: 1300px) {
     .video {
-        width: 160vh;
+        width: 200vh;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .video {
-        width: 140vh;
+        width: 160vh;
     }
 }

@@ -2,7 +2,7 @@
 import './TeamCard.css'
 import Image from 'next/image'
 import Icon from '@/shared/icon'
-import type { ModeratorType } from '@/shared/api/home-tour/type'
+import type { ModeratorType } from '@/shared/api/type'
 import { getImageUrl } from '@/shared/utils/getImageUrl'
 
 interface TeamCardProps extends ModeratorType {
@@ -15,7 +15,6 @@ const TeamCard = ({
   onClick,
   fio,
   image,
-  address,
   email,
   phone,
   desc,
@@ -46,10 +45,6 @@ const TeamCard = ({
             <span className="team-card__position">{email}</span>
           </div>
           <div className="team-card__position">{phone}</div>
-          <div className="team-card__contact-item">
-            <span className="team-card__contact-label team-card__position">Офис:</span>&nbsp;
-            <span className="team-card__position">{address}</span>
-          </div>
           <div className="team-card__socials">
             {social_links.map((social, index) => (
               <a key={index} href={social.url} target="_blank" rel="noopener noreferrer">

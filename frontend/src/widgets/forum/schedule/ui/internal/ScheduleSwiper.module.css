@@ -1,0 +1,31 @@
+.scheduleArrow {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.schedulePrev:after,
+.scheduleNext:after{
+    display: none;
+}
+
+.scheduleArrow :global(.swiper-button-disabled) {
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.schedulePrev, .scheduleNext {
+    border-radius: 50%;
+    padding: 8px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--blue);
+    color: var(--white);
+}
+

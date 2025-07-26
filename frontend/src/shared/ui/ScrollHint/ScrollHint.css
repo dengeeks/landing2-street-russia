@@ -1,0 +1,11 @@
+.scroll-hint {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    font-stretch: semi-condensed;
+    line-height: 130%;
+    color: var(--red);
+    margin-bottom: 10px;
+}

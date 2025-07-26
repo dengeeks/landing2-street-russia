@@ -3,7 +3,6 @@ import {remoteMediaPattern } from "@/shared/settings"
 
 const nextConfig: NextConfig = {
     images: {
-        minimumCacheTTL: 2678400,
         formats: ["image/webp"],
         remotePatterns: [
             remoteMediaPattern ,

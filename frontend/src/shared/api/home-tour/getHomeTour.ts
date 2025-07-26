@@ -1,6 +1,6 @@
 import { HOME_TOUR } from '@/shared/api/endpoints'
 import type { HomeTourType } from './type'
-import { REVALIDATE_TIME } from '@/shared/settings'
+import { REVALIDATE_TIME, REVALIDATE_TOUR_TIME } from '@/shared/settings'
 
 // заглушка при ошибке
 export const EMPTY_HOME_TOUR: HomeTourType = {
@@ -9,8 +9,8 @@ export const EMPTY_HOME_TOUR: HomeTourType = {
   video_url: null,
   image: "",
   title: "",
-  starting_date: "",
-  ending_date: "",
+  starting_date: "2025-07-16T06:00:00+03:00",
+  ending_date: "2025-10-16T06:00:00+03:00",
   address: "",
   address_yandex: "",
   info_participant: "",
@@ -23,7 +23,6 @@ export const EMPTY_HOME_TOUR: HomeTourType = {
     fio: "",
     email: "",
     phone: "",
-    address: "",
     image: null,
     title: ""
   },
@@ -45,7 +44,7 @@ export async function getHomeTour(): Promise<HomeTourType> {
       headers: {
         'Content-Type': 'application/json',
       },
-      next: {revalidate: REVALIDATE_TIME}
+      next: {revalidate: REVALIDATE_TOUR_TIME}
     });
 
     if (!res.ok) {

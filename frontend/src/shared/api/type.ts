@@ -18,3 +18,16 @@ export type RegionType = {
   code: string;
 }
 
+
+export type ModeratorType = {
+  id: string;
+  social_links: SocialLinkType[];
+  created_at: string;
+  updated_at: string;
+  fio: string;
+  email: string;
+  phone: string;
+  image: string;
+  type: string;
+  desc: string;
+}
