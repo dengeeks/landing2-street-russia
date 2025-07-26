@@ -31,6 +31,7 @@ export async function generateMetadata( _: unknown, parent: ResolvingMetadata): 
 
 export default async function TourDetailPage() {
   const tourData = await getDetailTour()
+
   return (
     <>
       <ForumOverview

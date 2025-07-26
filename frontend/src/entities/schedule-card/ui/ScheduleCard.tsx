@@ -44,9 +44,7 @@ const ScheduleCard = ({ text, speakers = [], isActive, onToggle }: ScheduleCardP
                 {group.map((speaker, i) => (
                   <div className={styles.scheduleSpeaker} key={i}>
                     <Image
-                      src={getImageUrl(
-                        '/back_media/uploads/participant/fc142fdd-6caa-49d4-8c60-40778b327124/Text_input21.jpeg'
-                      )}
+                      src={getImageUrl(speaker.image)}
                       width={75}
                       height={75}
                       alt={speaker.fio}
