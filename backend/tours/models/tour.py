@@ -6,7 +6,6 @@ from common.models import UUIDMixin, DateTimeMixin
 from common.utils import setup_image_path
 from common.validators import validate_iframe
 from regions.models.region import City
-from tours.models.leader import Leader
 from tours.models.moderator import Moderator
 from tours.models.participant import Participant
 
@@ -25,7 +24,6 @@ class Tour(UUIDMixin, DateTimeMixin):
 
     Поля:
         - title: Название тура (максимум 125 символов).
-        - info: Подробное описание тура в формате HTML (используется CKEditor).
         - address: Физический адрес проведения тура (максимум 125 символов).
         - starting_date: Дата и время начала тура.
         - ending_date: Дата и время завершения тура.
@@ -35,7 +33,6 @@ class Tour(UUIDMixin, DateTimeMixin):
         - info_participant: Текстовое описание участников тура.
         - participant: Основной участник тура (связь один-к-одному).
         - moderator: Модераторы и гости тура (связь многие-ко-многим).
-        - leader: Лидер тура (связь один-к-одному).
         - place: Место проведения тура (текстовое описание).
         - target_audience: Целевая аудитория тура (текстовое описание).
         - target: Цели тура (текстовое описание).
@@ -64,7 +61,6 @@ class Tour(UUIDMixin, DateTimeMixin):
     ]
 
     title = models.CharField(max_length = 125, verbose_name = 'Название')
-    info = RichTextField(verbose_name = 'Описание')
     address = models.CharField(max_length = 125, verbose_name = 'Адрес')
     starting_date = models.DateTimeField(verbose_name = 'Дата начала')
     ending_date = models.DateTimeField(verbose_name = 'Дата завершения')
@@ -73,12 +69,7 @@ class Tour(UUIDMixin, DateTimeMixin):
     place = models.TextField(verbose_name = 'Место')
     target_audience = models.TextField(verbose_name = 'Целевая аудитория')
     target = models.TextField(verbose_name = 'Цель')
-    leader = models.ForeignKey(
-        to = Leader,
-        verbose_name = 'Лидер',
-        on_delete = models.CASCADE,
-        related_name = 'tours'
-    )
+
     participant = models.ForeignKey(
         to = Participant,
         verbose_name = 'Участник',
@@ -194,3 +185,47 @@ class TourCityActivity(DateTimeMixin):
     class Meta:
         verbose_name = 'активность'
         verbose_name_plural = 'активность'
+
+
+class ProgramDate(UUIDMixin, DateTimeMixin):
+    date = models.DateField(verbose_name = 'Дата')
+    tour = models.ForeignKey(
+        to = Tour,
+        verbose_name = 'Тур',
+        on_delete = models.CASCADE,
+        related_name = 'programs'
+    )
+
+    class Meta:
+        verbose_name = 'дата программы'
+        verbose_name_plural = 'дата программы'
+        constraints = [
+            models.UniqueConstraint(fields=['date', 'tour'], name='unique_program_date_per_tour')
+        ]
+
+
+class Program(UUIDMixin, DateTimeMixin):
+    program_date = models.ForeignKey(
+        to = ProgramDate,
+        verbose_name = 'Дата',
+        on_delete = models.CASCADE,
+        related_name = 'programs'
+    )
+    start_time = models.TimeField(
+        verbose_name = 'Время начала'
+    )
+    description = RichTextField(
+        verbose_name = 'Описание',
+        null = True,
+        blank = True
+    )
+    moderator = models.ManyToManyField(
+        to = Moderator,
+        related_name = 'programs',
+        null = True,
+        blank = True
+    )
+
+    class Meta:
+        verbose_name = 'программа'
+        verbose_name_plural = 'программа'
