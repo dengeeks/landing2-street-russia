@@ -1,0 +1,83 @@
+.scheduleSection {
+    margin-top: 40px;
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+}
+
+.scheduleDayTitle {
+    font-family: var(--font-Benzin), sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 120%;
+    margin-bottom: 25px;
+    color: var(--red);
+}
+
+.scheduleTimeline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.scheduleRow {
+    display: flex;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 150%;
+    padding: 20px;
+}
+
+.scheduleRow:nth-child(odd) {
+    background-color: var(--white);
+    color: var(--dark-grey);
+}
+
+.scheduleTime {
+    width: 100px;
+    max-width: 100px;
+
+    text-align: center;
+    flex-shrink: 0;
+}
+
+
+@media (max-width: 768px) {
+    .scheduleSection {
+        margin-top: 20px;
+    }
+
+    .scheduleTimeline {
+        gap: 15px;
+    }
+
+    .scheduleDayTitle {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .scheduleRow {
+        flex-direction: column;
+        gap: 5px;
+        font-size: 16px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid var(--divider-white);
+    }
+
+    .scheduleRow:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    .scheduleRow:nth-child(odd) {
+        background-color: transparent;
+        color: var(--white);
+    }
+
+    .scheduleTime {
+        padding: 0;
+        text-align: left;
+        color: var(--red-hover);
+    }
+
+}

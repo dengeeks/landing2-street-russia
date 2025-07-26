@@ -1,26 +1,47 @@
-import BannerEvent from '@/widgets/events/banner'
-import EventFullInfo from '@/widgets/events/full-info'
+import ForumOverview from '@/widgets/forum/overview'
+import ForumSchedule from '@/widgets/forum/schedule'
 
-import MarqueeText from '@/shared/ui/marquee-text'
-import EventMap from '@/widgets/events/map'
+import type { Metadata, ResolvingMetadata } from 'next'
+
 import { getDetailTour } from '@/shared/api/detail-tour/getDetailTour'
 
-export default async function TourDetailPage() {
-  const detailData = await getDetailTour()
+export async function generateMetadata( _: unknown, parent: ResolvingMetadata): Promise<Metadata> {
+  const [data, parentOpenGraph] = await Promise.all([
+    getDetailTour(),
+    parent.then((p) => p.openGraph),
+  ]);
 
+  return {
+    title: data.title,
+    openGraph: {
+      ...parentOpenGraph,
+      images: [
+        {
+          url: data.image || '/logo.webp',
+          alt: data.title,
+        },
+      ],
+      url: `/tour`,
+
+    },
+  }
+}
+
+
+
+export default async function TourDetailPage() {
+  const tourData = await getDetailTour()
   return (
     <>
-      <BannerEvent
-        title={detailData.title}
-        image={detailData.image}
-        format_type={detailData.format_type}
-        video_url={detailData.video_url}
-        starting_date={detailData.starting_date}
-        ending_date={detailData.ending_date}
+      <ForumOverview
+        title={tourData.title}
+        target_audience={tourData.target_audience}
+        target={tourData.target}
+        place={tourData.target}
+        starting_date={tourData.starting_date}
+        ending_date={tourData.ending_date}
       />
-      <MarqueeText grayText="ул. Тухачевского 48Б кемерово " />
-      <EventFullInfo description={detailData.info} leader={detailData.leader} />
-      <EventMap title={detailData.address} yandex_address={detailData.address_yandex} />
+      <ForumSchedule data={tourData.program_dates}/>
     </>
   )
 }

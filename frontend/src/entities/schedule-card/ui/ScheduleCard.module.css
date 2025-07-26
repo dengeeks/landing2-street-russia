@@ -1,0 +1,68 @@
+.scheduleTableCell {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.scheduleTableCell .scheduleSpeakerList {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.scheduleSpeaker {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.scheduleSpeakerImageImg {
+    object-fit: cover;
+}
+
+.scheduleSpeakerName {
+    font-weight: 500;
+}
+
+.scheduleSpeakerPosition {
+    font-size: 14px;
+    color: var(--placeholder);
+}
+
+.scheduleMoreBtn {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    color: var(--red);
+    background-color: transparent;
+    border: none;
+    max-width: max-content;
+    cursor: pointer;
+    font-stretch: semi-condensed;
+    font-size: 16px;
+    font-family: var(--font-Bahnschrift), sans-serif;
+}
+
+
+@media (max-width: 768px) {
+    .scheduleSpeaker {
+        margin-top: 15px;
+    }
+
+    .scheduleSpeakerName {
+        font-size: 18px;
+    }
+
+    .scheduleSpeakerImageImg {
+        width: 60px;
+        height: 60px;
+    }
+
+
+    .scheduleMoreBtn {
+        font-size: 14px;
+    }
+
+
+}

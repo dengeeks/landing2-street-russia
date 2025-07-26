@@ -6,4 +6,5 @@ export type IconName =
     | 'close'
     | 'search'
     | 'marker'
-    | 'scroll';
+    | 'scroll'
+    | 'arrow-swiper';

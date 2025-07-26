@@ -3,7 +3,7 @@ import Image from "next/image";
 import type { ParticipantType } from '@/shared/api/home-tour/type'
 import { getImageUrl } from '@/shared/utils/getImageUrl'
 
-const ParticipantManagerCard = ({image, fio, email, phone, title, address, social_links}: ParticipantType) => {
+const ParticipantManagerCard = ({image, fio, email, phone, title, social_links}: ParticipantType) => {
     return (
         <article className="participant-manager-employee">
             <div className="participant-manager-photo-wrapper">
@@ -20,11 +20,6 @@ const ParticipantManagerCard = ({image, fio, email, phone, title, address, socia
                         <span className="participant-manager-value">{email}</span>
                     </div>
                     <div className="participant-manager-value">{phone}</div>
-                    <div className="participant-manager-info-row">
-                        <span className="participant-manager-label">Офис:</span>
-                        <span className="participant-manager-value">{address}</span>
-                    </div>
-
                 </div>
                 <div className="participant-manager-social-links">
                     {social_links.map((social, index) => (
