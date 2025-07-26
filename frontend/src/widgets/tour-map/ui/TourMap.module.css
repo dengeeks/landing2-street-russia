@@ -16,6 +16,8 @@
 
 .mapWrapper svg {
     max-width: 1369px;
+    width: 100%;
+    height: 100%;
 }
 
 .mapRegionPath  {
@@ -30,7 +32,7 @@
 
 .leftContent {
     position: absolute;
-    top: 63px;
+    top: 0;
     left: 0;
     z-index: 2;
     max-width: 771px;
@@ -70,12 +72,24 @@
     background-color: var(--blue);
 }
 
+@media (max-width: 1024px ) {
 
-@media (max-width: 768px ) {
-    .leftContent {
-        top: 0;
+    .mapMarker {
+        gap: 2px;
+        left: calc(var(--x) - 10px);
     }
 
+    .mapMarker svg {
+        width: 15px;
+        height: 25px;
+    }
+
+    .label {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px ) {
 
     .mapMarker {
         gap: 2px;

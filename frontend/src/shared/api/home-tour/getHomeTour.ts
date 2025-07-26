@@ -1,6 +1,6 @@
 import { HOME_TOUR } from '@/shared/api/endpoints'
 import type { HomeTourType } from './type'
-import { REVALIDATE_TIME, REVALIDATE_TOUR_TIME } from '@/shared/settings'
+import { REVALIDATE_TOUR_TIME } from '@/shared/settings'
 
 // заглушка при ошибке
 export const EMPTY_HOME_TOUR: HomeTourType = {
