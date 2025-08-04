@@ -1,0 +1,52 @@
+
+
+.region-modal {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    transform: translate(-50%, -100%);
+    background-color: var(--dark-grey);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.region-modal__content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 20px;
+
+}
+
+.region-modal__city {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    font-stretch: semi-condensed;
+    line-height: 150%;
+}
+
+.region-modal__city-name {
+   color: var(--red);
+}
+
+@media (max-width: 1024px) {
+    .region-modal__content {
+        padding: 5px 10px;
+    }
+    .region-modal__city {
+        font-size: 12px;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+    .region-modal__city {
+        font-size: 10px;
+    }
+
+}
+

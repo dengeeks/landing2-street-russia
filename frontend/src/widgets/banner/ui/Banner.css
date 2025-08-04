@@ -5,12 +5,22 @@
     overflow: hidden;
 }
 
+.banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    pointer-events: none;
+}
+
 .banner img {
     object-fit: cover;
 }
 
 .banner__inner {
     position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     gap: 32px;

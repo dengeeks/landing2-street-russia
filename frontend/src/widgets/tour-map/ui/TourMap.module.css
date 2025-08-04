@@ -11,6 +11,7 @@
 .mapWrapper {
     display: flex;
     justify-content: flex-end;
+    position: relative;
 }
 
 
@@ -20,89 +21,48 @@
     height: 100%;
 }
 
+.mapRegionWithEvent {
+    fill: #6E231F ;
+}
+
 .mapRegionPath  {
-    fill: #6E231F;
+    fill: var(--divider-white);
     stroke: var(--dark-grey);
     stroke-width: 0.5;
 }
 
-.mapRegionPath:hover  {
-    fill: var(--grey);
+.mapRegionWithEvent.mapRegionPath {
+    fill: #6E231F ;
+    cursor: pointer;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+    .mapRegionWithEvent:hover  {
+        opacity: 0.6;
+    }
 }
 
 .leftContent {
     position: absolute;
-    top: 0;
+    top: -20px;
     left: 0;
     z-index: 2;
     max-width: 771px;
     white-space: pre-wrap;
-}
-
-
-/*маркер*/
-
-.mapWrapper {
-    position: relative;
-    width: 100%;
-}
-
-.mapMarker {
-    position: absolute;
-    left: calc(var(--x) - 16px);
-    top: var(--y);
-    display: flex;
-    gap: 9px;
     pointer-events: none;
-    transform: translate(0%, -100%);
-    align-items: flex-end;
 }
 
 
-.label {
-    color: var(--white);
-    font-size: 20px;
-    white-space: nowrap;
-    font-weight: 400;
-    font-stretch: semi-condensed;
-    line-height: 130%;
-}
 
-.city {
-    background-color: var(--blue);
-}
-
-@media (max-width: 1024px ) {
-
-    .mapMarker {
-        gap: 2px;
-        left: calc(var(--x) - 10px);
+@media (max-width: 768px) {
+    .tourMapSection .leftContent {
+        position: relative;
+        padding: 0;
+        top: 0;
     }
 
-    .mapMarker svg {
-        width: 15px;
-        height: 25px;
+    .mapWrapper {
+        padding: 0 10px;
     }
-
-    .label {
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 768px ) {
-
-    .mapMarker {
-        gap: 2px;
-        left: calc(var(--x) - 5px);
-    }
-
-    .mapMarker svg {
-        width: 10px;
-        height: 15px;
-    }
-
-    .label {
-        font-size: 8px;
-    }
-
 }
