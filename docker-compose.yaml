@@ -64,6 +64,11 @@ services:
       - 3002:3000
     depends_on:
       - landing2-backend
+    tmpfs:
+      - /tmp
+      - /app/.next/cache
+    security_opt:
+      - no-new-privileges:true       
     networks:
       - landing2_network
 
